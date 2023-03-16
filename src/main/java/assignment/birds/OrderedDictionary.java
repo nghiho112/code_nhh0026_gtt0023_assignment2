@@ -146,8 +146,23 @@ public class OrderedDictionary implements OrderedDictionaryADT {
      */
     @Override
     public BirdRecord predecessor(DataKey k) throws DictionaryException{
-        // Write this method
-        return null; // change this statement
+        Node current = root;
+        BirdRecord preBird = new BirdRecord();
+        while (current != null){
+            int comparison = current.getData().getDataKey().compareTo(k);
+            if (comparison == 1){
+                preBird = current.getData();
+                current = current.getRightChild();
+            }
+            else {
+                current = current.getLeftChild();
+            }
+        }
+        if (preBird == null){
+            throw new DictionaryException("There is no predecessor for the given record key");
+        }
+        return preBird;
+
     }
 
     /**
@@ -158,8 +173,17 @@ public class OrderedDictionary implements OrderedDictionaryADT {
      */
     @Override
     public BirdRecord smallest() throws DictionaryException{
-        // Write this method
-        return null; // change this statement
+        if (isEmpty()) {
+            throw new DictionaryException("The dictionary is empty.");
+        }
+        Node current = root;
+        BirdRecord smallestBird = new BirdRecord();
+
+        while (current.hasLeftChild()) {
+            current = current.getLeftChild();
+        }
+        smallestBird = current.getData();
+        return smallestBird;
     }
 
     /*
@@ -168,8 +192,16 @@ public class OrderedDictionary implements OrderedDictionaryADT {
      */
     @Override
     public BirdRecord largest() throws DictionaryException{
-        // Write this method
-        return null; // change this statement
+        if (isEmpty()) throw new DictionaryException("The dictionary is empty.");
+
+        Node current = root;
+        BirdRecord largestBird = new BirdRecord();
+
+        while (current.hasRightChild()) {
+            current = current.getRightChild();
+        }
+        largestBird = current.getData();
+        return largestBird;
     }
       
     /* Returns true if the dictionary is empty, and true otherwise. */
