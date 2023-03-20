@@ -155,17 +155,21 @@ public class BirdsController implements Initializable {
 
     public void first() {
         // Write this method
-        bird = database.root.getData();
+        try {
+            bird = database.smallest();
+        } catch(DictionaryException ex){
+            System.out.println("Dictionary is empty. "+ ex);
+        }
         showBird();
     }
 
     public void last() {
         // Write this method
-        Node current = database.root;
-        while (current.hasRightChild()){
-            current = current.getRightChild();
+        try {
+            bird = database.largest();
+        } catch(DictionaryException ex){
+            System.out.println("Dictionary is empty. "+ ex);
         }
-        bird = current.getData();
         showBird();
     }
 
