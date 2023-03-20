@@ -3,6 +3,7 @@ package assignment.birds;
 public class OrderedDictionary implements OrderedDictionaryADT {
 
     Node root;
+    Node cur = root;
 
     OrderedDictionary() {
         root = new Node();
@@ -100,41 +101,32 @@ public class OrderedDictionary implements OrderedDictionaryADT {
      * @throws birds.DictionaryException
      */
     @Override
-    public void remove(DataKey k) throws DictionaryException {
-//        int comparison;
-//        Node current = root;
-//        if (isEmpty()) throw new DictionaryException("No such record key exists");
-//
-//        comparison = current.getData().getDataKey().compareTo(k);
-//
-//        if (comparison < 0) //the Datakey needed to be removed is less than the root
-//        {
-//            current = current.getLeftChild();
-//            remove(current.getData().getDataKey());
-//        }
-//        else if (comparison > 0) //the Datakey to be rmoved is to the right subtree
-//        {
-//            current = current.getRightChild();
-//            remove(current.getData().getDataKey());
-//        }
-//        else {
-//            //the node to removed is a leaf
-//            if (!current.hasRightChild() && !current.hasLeftChild()) {
-//                current = null;
-//            }
-//            //the node is not a leaf and has a right child
-//            else if (current.getRightChild() != null) {
-//                current.setData(successor(k));
-//                current = current.getRightChild();
-//                remove(current.getData().getDataKey());
-//            }
-//            else {
-//                current.setData(predecessor(k));
-//                current = current.getLeftChild();
-//                remove(current.getData().getDataKey());
-//            }
-//        }
 
+    public void remove(DataKey k) throws DictionaryException {
+        root = removeNode(root, k);
+    }
+    private Node removeNode(Node cur, DataKey k){
+        if (cur == null)
+            return null;
+        int comparison = cur.getData().getDataKey().compareTo(k);
+        if (comparison > 0){
+            cur.setLeftChild(removeNode(cur.getLeftChild(), k));
+        }
+        else if (comparison < 0){
+            cur.setRightChild(removeNode(cur.getRightChild(), k));
+        }
+        else {
+            if (!cur.hasRightChild())
+                return cur.getLeftChild();
+            if (!cur.hasLeftChild())
+                return cur.getRightChild();
+
+            try {
+                cur.setData(successor(cur.getRightChild().getData().getDataKey()));
+            } catch (DictionaryException ex){}
+            cur.setRightChild(removeNode(cur.getRightChild(), k));
+        }
+        return cur;
     }
 
 
