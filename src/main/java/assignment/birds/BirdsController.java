@@ -180,12 +180,12 @@ public class BirdsController implements Initializable {
     }
 
     public void previous() {
-        /*try {
+        try {
             bird = database.successor(bird.getDataKey());
         } catch(DictionaryException ex){
             System.out.println("No successor found. "+ ex);
         }
-        showBird();*/
+        showBird();
     }
 
     public void play() {

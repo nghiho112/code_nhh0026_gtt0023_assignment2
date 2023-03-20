@@ -101,8 +101,42 @@ public class OrderedDictionary implements OrderedDictionaryADT {
      */
     @Override
     public void remove(DataKey k) throws DictionaryException {
-        // Write this method
+//        int comparison;
+//        Node current = root;
+//        if (isEmpty()) throw new DictionaryException("No such record key exists");
+//
+//        comparison = current.getData().getDataKey().compareTo(k);
+//
+//        if (comparison < 0) //the Datakey needed to be removed is less than the root
+//        {
+//            current = current.getLeftChild();
+//            remove(current.getData().getDataKey());
+//        }
+//        else if (comparison > 0) //the Datakey to be rmoved is to the right subtree
+//        {
+//            current = current.getRightChild();
+//            remove(current.getData().getDataKey());
+//        }
+//        else {
+//            //the node to removed is a leaf
+//            if (!current.hasRightChild() && !current.hasLeftChild()) {
+//                current = null;
+//            }
+//            //the node is not a leaf and has a right child
+//            else if (current.getRightChild() != null) {
+//                current.setData(successor(k));
+//                current = current.getRightChild();
+//                remove(current.getData().getDataKey());
+//            }
+//            else {
+//                current.setData(predecessor(k));
+//                current = current.getLeftChild();
+//                remove(current.getData().getDataKey());
+//            }
+//        }
+
     }
+
 
     /**
      * Returns the successor of k (the record from the ordered dictionary with
@@ -146,8 +180,18 @@ public class OrderedDictionary implements OrderedDictionaryADT {
      */
     @Override
     public BirdRecord predecessor(DataKey k) throws DictionaryException{
-        // Write this method
-        return null; // change this statement
+        Node current = root;
+        BirdRecord preBird = new BirdRecord();
+        current = current.getLeftChild(); //one step left
+        while (current.getRightChild() != null){ //go right until it can
+                preBird = current.getData();
+                current = current.getRightChild();
+        }
+        if (preBird == null){
+            throw new DictionaryException("There is no predecessor for the given record key");
+        }
+        return preBird;
+
     }
 
     /**
@@ -158,8 +202,17 @@ public class OrderedDictionary implements OrderedDictionaryADT {
      */
     @Override
     public BirdRecord smallest() throws DictionaryException{
-        // Write this method
-        return null; // change this statement
+        if (isEmpty()) {
+            throw new DictionaryException("The dictionary is empty.");
+        }
+        Node current = root;
+        BirdRecord smallestBird = new BirdRecord();
+
+        while (current.hasLeftChild()) {
+            current = current.getLeftChild();
+        }
+        smallestBird = current.getData();
+        return smallestBird;
     }
 
     /*
@@ -168,8 +221,16 @@ public class OrderedDictionary implements OrderedDictionaryADT {
      */
     @Override
     public BirdRecord largest() throws DictionaryException{
-        // Write this method
-        return null; // change this statement
+        if (isEmpty()) throw new DictionaryException("The dictionary is empty.");
+
+        Node current = root;
+        BirdRecord largestBird = new BirdRecord();
+
+        while (current.hasRightChild()) {
+            current = current.getRightChild();
+        }
+        largestBird = current.getData();
+        return largestBird;
     }
       
     /* Returns true if the dictionary is empty, and true otherwise. */
