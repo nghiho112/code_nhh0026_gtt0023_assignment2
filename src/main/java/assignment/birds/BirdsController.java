@@ -181,9 +181,9 @@ public class BirdsController implements Initializable {
 
     public void previous() {
         try {
-            bird = database.successor(bird.getDataKey());
+            bird = database.predecessor(bird.getDataKey());
         } catch(DictionaryException ex){
-            System.out.println("No successor found. "+ ex);
+            System.out.println("No predecessor found. "+ ex);
         }
         showBird();
     }
