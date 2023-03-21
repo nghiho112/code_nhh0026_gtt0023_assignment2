@@ -13,3 +13,33 @@ The violin, sometimes known as a fiddle, is a wooden chordophone (string instrum
 1
 Viola
 The viola is a string instrument that is bowed, plucked, or played with varying techniques. Slightly larger than a violin, it has a lower and deeper sound. In the past, the viola varied in size and style, as did its names. The word viola originates from the Italian language. The Italians often used the term viola da braccio meaning literally: 'of the arm'.
+2
+Acoustic Guitar
+An acoustic guitar is a musical instrument that produces sound through the vibration of its strings. It typically has a hollow body with a sound hole in the center that amplifies the sound produced by the strings. The body of an acoustic guitar is usually made of wood, and the top (or soundboard) is made of a thin piece of spruce or cedar, which is carefully selected for its tonal qualities. The strings of an acoustic guitar are made of steel or nylon and are attached to the bridge, which sits on the top of the guitar's body. The neck of the guitar is attached to the body and has frets, which are metal strips that divide the neck into different sections that correspond to different notes.
+3
+Balalayka
+Balalaika is a triangular Russian stringed instrument with a flat back and three strings tuned to an open chord. It is played by plucking the strings with fingers and has a bright, sharp sound that is well-suited for fast-paced music. The instrument is popular in traditional Russian folk music and modern music styles.
+2
+Bass Guitar
+A bass guitar is a stringed instrument with a long neck and a large body, similar to an electric guitar but with a longer scale length and thicker strings. It typically has four strings tuned to an octave lower than the lowest four strings of a guitar and is commonly used in rhythm sections of bands.
+3
+Cello
+The cello, also known as the violoncello, is a stringed instrument that is played with a bow. It has a hollow wooden body with a curved top and back, a long neck with a fingerboard, and four strings tuned to C-G-D-A. The cello is larger than a violin and produces a warm, rich tone that is often used in classical music, as well as in other genres such as folk, rock, and jazz. The cello is played sitting down, with the instrument held between the knees and supported by a spike or endpin that rests on the floor.
+3
+Double Bass
+The double bass, also known as the upright bass, is a large stringed instrument with a hollow wooden body, a long neck, and four strings tuned to E-A-D-G. It is played with a bow or by plucking the strings with the fingers and is commonly used in orchestras and jazz ensembles to provide a deep, rich sound. The instrument is played standing up, supported by a strap or harness over the shoulder.
+2
+Electric Guitar
+An electric guitar is a stringed instrument that uses pickups to convert string vibration into electrical signals, which are then amplified through an amplifier and speaker. They have a solid or semi-hollow body, multiple pickups, tone and volume controls, and are played with a pick or fingers. Electric guitars are popular in rock, pop, blues, and jazz music due to their versatility and range of sounds.
+3
+Harp
+The harp is a stringed musical instrument with a triangular frame and numerous strings that are plucked by the fingers. It has a resonating chamber that amplifies the sound produced by the strings. Harps can have pedal mechanisms to change the pitch of the strings, allowing the player to play in different keys. The harp is used in a wide range of musical genres, including classical, folk, and popular music.
+1
+Mandolin
+The mandolin is a small stringed instrument with a pear-shaped body and a long neck. It typically has eight strings that are tuned in pairs and played with a pick or fingers. Mandolins are commonly used in folk music and bluegrass, but can also be found in classical, jazz, and rock music. The instrument has a bright, crisp sound and is often used for both melody and accompaniment.
+3
+Sitar
+The sitar is a stringed musical instrument that originated in India. It has a long, hollow wooden neck, a resonating gourd body, and a series of movable frets. The sitar typically has six or seven main strings and several sympathetic strings that resonate with the main strings. It is played with a pick and has a distinctive sound that is used in traditional Indian music and popular music genres.
+1
+Ukulele
+The ukulele is a small, four-stringed musical instrument that originated in Hawaii. It has a small, guitar-like body and a short neck with frets. The ukulele is typically played with the fingers or a pick and produces a bright, cheerful sound. It is used in a variety of musical genres, including Hawaiian music, folk, pop, and rock, and is popular due to its small size and portability.

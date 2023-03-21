@@ -20,7 +20,7 @@ public class Birds extends Application {
         Scene scene = new Scene(root);
 
         stage.getIcons().add(new Image("file:src/main/resources/assignment/birds/images/UNTIcon.png"));
-        stage.setTitle("Birds Portal");
+        stage.setTitle("Musical Instruments Portal");
 
         stage.setScene(scene);
         stage.show();
