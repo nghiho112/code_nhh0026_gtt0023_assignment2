@@ -104,6 +104,9 @@ public class OrderedDictionary implements OrderedDictionaryADT {
 
     public void remove(DataKey k) throws DictionaryException {
         root = removeNode(root, k);
+        if (root == null){
+            throw new DictionaryException("Key not found in dictionary.");
+        }
     }
     private Node removeNode(Node cur, DataKey k){
         if (cur == null)
