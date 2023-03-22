@@ -27,7 +27,7 @@ import java.util.logging.Logger;
  *
  * @author Ouda
  */
-public class BirdsController implements Initializable {
+public class InstrumentController implements Initializable {
 
     @FXML
     private MenuBar mainMenu;
@@ -50,7 +50,7 @@ public class BirdsController implements Initializable {
     Media media;
     MediaPlayer player;
     OrderedDictionary database = null;
-    BirdRecord bird = null;
+    InstrumentRecord bird = null;
     int birdSize = 1;
 
     @FXML
@@ -70,13 +70,13 @@ public class BirdsController implements Initializable {
     }
 
     public void delete() {
-        BirdRecord previousBird = null;
+        InstrumentRecord previousBird = null;
         try {
             previousBird = database.predecessor(bird.getDataKey());
         } catch (DictionaryException ex) {
 
         }
-        BirdRecord nextBird = null;
+        InstrumentRecord nextBird = null;
         try {
             nextBird = database.successor(bird.getDataKey());
         } catch (DictionaryException ex) {
@@ -178,6 +178,7 @@ public class BirdsController implements Initializable {
         try {
             bird = database.successor(bird.getDataKey());
         } catch(DictionaryException ex){
+            displayAlert("This is the last element in the dictionary.");
             System.out.println("No successor found. "+ ex);
         }
         showBird();
@@ -187,6 +188,7 @@ public class BirdsController implements Initializable {
         try {
             bird = database.predecessor(bird.getDataKey());
         } catch(DictionaryException ex){
+            displayAlert("This is the first element in the dictionary.");
             System.out.println("No predecessor found. "+ ex);
         }
         showBird();
@@ -216,7 +218,7 @@ public class BirdsController implements Initializable {
             String birdName = "";
             String description;
             int size = 0;
-            input = new Scanner(new File("BirdsDatabase.txt"));
+            input = new Scanner(new File("InstrumentDatabase.txt"));
             while (input.hasNext()) // read until  end of file
             {
                 String data = input.nextLine();
@@ -229,16 +231,16 @@ public class BirdsController implements Initializable {
                         break;
                     default:
                         description = data;
-                        database.insert(new BirdRecord(new DataKey(birdName, size), description, birdName + ".mp3", birdName + ".jpg"));
+                        database.insert(new InstrumentRecord(new DataKey(birdName, size), description, birdName + ".mp3", birdName + ".jpg"));
                         break;
                 }
                 line++;
             }
         } catch (IOException e) {
-            System.out.println("There was an error in reading or opening the file: BirdsDatabase.txt");
+            System.out.println("There was an error in reading or opening the file: InstrumentDatabase.txt");
             System.out.println(e.getMessage());
         } catch (DictionaryException ex) {
-            Logger.getLogger(BirdsController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(InstrumentController.class.getName()).log(Level.SEVERE, null, ex);
         }
         this.BirdPortal.setVisible(true);
         this.first();

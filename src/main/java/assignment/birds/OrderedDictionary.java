@@ -3,7 +3,6 @@ package assignment.birds;
 public class OrderedDictionary implements OrderedDictionaryADT {
 
     Node root;
-    Node cur = root;
 
     OrderedDictionary() {
         root = new Node();
@@ -18,7 +17,7 @@ public class OrderedDictionary implements OrderedDictionaryADT {
      * @throws assignment/birds/DictionaryException.java
      */
     @Override
-    public BirdRecord find(DataKey k) throws DictionaryException {
+    public InstrumentRecord find(DataKey k) throws DictionaryException {
         Node current = root;
         int comparison;
         if (root.isEmpty()) {         
@@ -55,12 +54,12 @@ public class OrderedDictionary implements OrderedDictionaryADT {
      * @throws birds.DictionaryException
      */
     @Override
-    public void insert(BirdRecord r) throws DictionaryException {
+    public void insert(InstrumentRecord r) throws DictionaryException {
         // Write this method
-
         Node current = root;
         int comparison;
         Node record = new Node(r);
+
         if (current.isEmpty()){
             current.setData(r);
             return;
@@ -105,6 +104,7 @@ public class OrderedDictionary implements OrderedDictionaryADT {
     public void remove(DataKey k) throws DictionaryException {
         root = removeNode(root, k);
         if (root == null){
+            root = new Node();
             throw new DictionaryException("Key not found in dictionary.");
         }
     }
@@ -143,9 +143,9 @@ public class OrderedDictionary implements OrderedDictionaryADT {
      * @throws birds.DictionaryException
      */
     @Override
-    public BirdRecord successor(DataKey k) throws DictionaryException{
+    public InstrumentRecord successor(DataKey k) throws DictionaryException{
         Node current = root;
-        BirdRecord successorBird = null;
+        InstrumentRecord successorBird = null;
         while (current != null){
             int comparison = current.getData().getDataKey().compareTo(k);
             if (comparison == 1){
@@ -173,9 +173,9 @@ public class OrderedDictionary implements OrderedDictionaryADT {
      * @throws birds.DictionaryException
      */
     @Override
-    public BirdRecord predecessor(DataKey k) throws DictionaryException{
+    public InstrumentRecord predecessor(DataKey k) throws DictionaryException{
         Node current = root;
-        BirdRecord preBird = null;
+        InstrumentRecord preBird = null;
         while (current != null){
             int comparison = current.getData().getDataKey().compareTo(k);
             if (comparison == -1){
@@ -200,12 +200,12 @@ public class OrderedDictionary implements OrderedDictionaryADT {
      * @return
      */
     @Override
-    public BirdRecord smallest() throws DictionaryException{
+    public InstrumentRecord smallest() throws DictionaryException{
         if (isEmpty()) {
             throw new DictionaryException("The dictionary is empty.");
         }
         Node current = root;
-        BirdRecord smallestBird = new BirdRecord();
+        InstrumentRecord smallestBird = new InstrumentRecord();
 
         while (current.hasLeftChild()) {
             current = current.getLeftChild();
@@ -219,11 +219,11 @@ public class OrderedDictionary implements OrderedDictionaryADT {
 	 * null if the dictionary is empty.
      */
     @Override
-    public BirdRecord largest() throws DictionaryException{
+    public InstrumentRecord largest() throws DictionaryException{
         if (isEmpty()) throw new DictionaryException("The dictionary is empty.");
 
         Node current = root;
-        BirdRecord largestBird = new BirdRecord();
+        InstrumentRecord largestBird = new InstrumentRecord();
 
         while (current.hasRightChild()) {
             current = current.getRightChild();

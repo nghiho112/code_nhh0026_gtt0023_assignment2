@@ -11,7 +11,7 @@ import javafx.stage.Stage;
  *
  * @author Ouda
  */
-public class Birds extends Application {
+public class Instrument extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {

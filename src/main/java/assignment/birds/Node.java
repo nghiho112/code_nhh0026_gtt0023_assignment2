@@ -7,31 +7,31 @@ package assignment.birds;
  */
 
 public class Node {
-	private BirdRecord _data;
+	private InstrumentRecord _data;
 	private Node _leftChild;
 	private Node _rightChild;
 	private Node _parent;
 
 	// default constructor
 	public Node() {
-		this(new BirdRecord()); // storing null Record objects
+		this(new InstrumentRecord()); // storing null Record objects
 	}
 
-	public Node(BirdRecord data) {
+	public Node(InstrumentRecord data) {
 		this(data, null, null);
 	}
 
-	public Node(BirdRecord data, Node leftChild, Node rightChild) {
+	public Node(InstrumentRecord data, Node leftChild, Node rightChild) {
 		_data = data;
 		setLeftChild(leftChild);
 		setRightChild(rightChild);
 	}
 
-	public BirdRecord getData() {
+	public InstrumentRecord getData() {
 		return _data;
 	}
 
-	public void setData(BirdRecord data) {
+	public void setData(InstrumentRecord data) {
 		_data = data;
 	}
 
